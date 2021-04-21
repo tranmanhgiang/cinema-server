@@ -44,6 +44,14 @@ module.exports.routes = {
   "POST /admin/get-revenue-by-period": { action: "admin/get-revenue-by-period" },
   "POST /admin/make-schedule": { action: "admin/make-schedule" },
   "GET /admin/get-schedule-end-date": { action: "admin/get-schedule-end-date" },
+  "POST /admin/get-cinema-by-film-id": { action: "admin/get-cinema-by-film-id" },
+  "POST /admin/buy-tickets-directly": { action: "admin/buy-tickets-directly" },
+  "GET /admin/overview": { action: "admin/overview" },
+  "GET /admin/get-users": { action: "admin/get-users" },
+  "POST /admin/add-user": { action: "admin/add-user" },
+  "POST /admin/edit-user": { action: "admin/edit-user" },
+  "POST /admin/upload-image": { action: "admin/upload-image" },
+  "GET /admin/get-orders-list": { action: "admin/get-orders-list" },
 
   /***************************************************************************
    *                                                                          *

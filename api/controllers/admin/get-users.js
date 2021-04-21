@@ -1,9 +1,16 @@
 module.exports = {
-  friendlyName: "Get total revenue",
 
-  description: "",
 
-  inputs: {},
+  friendlyName: 'Get users',
+
+
+  description: '',
+
+
+  inputs: {
+
+  },
+
 
   exits: {
     success: {
@@ -14,20 +21,21 @@ module.exports = {
     },
   },
 
+
   fn: async function (inputs, exits) {
     try {
-      const total = await Orders.sum("price");
-      const totalOnline = await Orders.sum("price").where({userId: 0});
+      const users = await Users.find();
+      if (!users.length) throw "error";
       return exits.success({
-        totalRevenue: total,
-        online: totalOnline,
+        data: users,
         message: "true",
       });
     } catch (error) {
-      console.log(error);
       return exits.fail({
-        message: "false",
+        message: "false"
       });
     }
-  },
+  }
+
+
 };

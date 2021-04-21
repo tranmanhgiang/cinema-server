@@ -1,9 +1,13 @@
+var dayjs = require("dayjs");
 module.exports = {
-  friendlyName: "Get total revenue",
+  friendlyName: "Get cinema by film id",
 
   description: "",
 
-  inputs: {},
+  inputs: {
+    date: { type: "string", required: true },
+    filmId: { type: "number", required: true },
+  },
 
   exits: {
     success: {
@@ -16,11 +20,11 @@ module.exports = {
 
   fn: async function (inputs, exits) {
     try {
-      const total = await Orders.sum("price");
-      const totalOnline = await Orders.sum("price").where({userId: 0});
+      const cinema = await sails.sendNativeQuery(
+        `SELECT * FROM schedule WHERE filmId = ${inputs.filmId} AND date = ${dayjs(inputs.date).valueOf()}`
+      );
       return exits.success({
-        totalRevenue: total,
-        online: totalOnline,
+        data: cinema.rows,
         message: "true",
       });
     } catch (error) {

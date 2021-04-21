@@ -32,7 +32,7 @@ module.exports = {
         author: inputs.author,
         actors: inputs.actors,
         releaseDate: dayjs(inputs.releaseDate).valueOf(),
-        duration: inputs.duration * 3600000,
+        duration: parseInt(inputs.duration) * 60000,
       }).fetch();
       if (!createFilm) throw "error";
       // const isResetSchedule = await sails.sendNativeQuery("DELETE FROM schedule");

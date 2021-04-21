@@ -1,11 +1,10 @@
 module.exports = {
-  friendlyName: "Book ticket",
+  friendlyName: "Book ticket directly",
 
   description: "",
 
   inputs: {
     price: { type: "number", required: true },
-    code: { type: "string", required: true },
     date: { type: "string", required: true },
     time: { type: "string", required: true },
     filmId: { type: "number", required: true },
@@ -24,11 +23,10 @@ module.exports = {
 
   fn: async function (inputs, exits) {
     try {
-      const user = this.req.user;
       const orders = await Orders.create({
-        userId: user.id,
+        userId: 0,
         price: inputs.price,
-        code: inputs.code,
+        code: '0',
         date: inputs.date,
         time: inputs.time,
         filmId: inputs.filmId,

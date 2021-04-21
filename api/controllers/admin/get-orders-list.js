@@ -1,9 +1,16 @@
 module.exports = {
-  friendlyName: "Get total revenue",
 
-  description: "",
 
-  inputs: {},
+  friendlyName: 'Get orders list',
+
+
+  description: '',
+
+
+  inputs: {
+
+  },
+
 
   exits: {
     success: {
@@ -14,20 +21,20 @@ module.exports = {
     },
   },
 
+
   fn: async function (inputs, exits) {
     try {
-      const total = await Orders.sum("price");
-      const totalOnline = await Orders.sum("price").where({userId: 0});
+      const ordersList = await sails.sendNativeQuery(`SELECT * FROM orders AS o JOIN users AS u ON o.userId = u.id JOIN rooms AS r ON o.theaterId = r.id JOIN films AS f ON o.filmId = f.id`);
       return exits.success({
-        totalRevenue: total,
-        online: totalOnline,
+        data: ordersList.rows,
         message: "true",
       });
     } catch (error) {
-      console.log(error);
       return exits.fail({
         message: "false",
       });
     }
-  },
+  }
+
+
 };

@@ -20,6 +20,6 @@ module.exports.policies = {
   // '*': true,
   'user/get-profile' : 'bearer',
   'cinema/book-ticket': 'bearer',
-  'cinema/check-seat-selected': 'bearer',
+  // 'cinema/check-seat-selected': 'bearer',
   'cinema/get-history-booked': 'bearer',
 };
