@@ -1,5 +1,5 @@
 module.exports = {
-  friendlyName: "Get total revenue",
+  friendlyName: "Get rooms",
 
   description: "",
 
@@ -16,17 +16,15 @@ module.exports = {
 
   fn: async function (inputs, exits) {
     try {
-      const total = await Orders.sum("price");
-      const totalOnline = await Orders.sum("price").where({userId: {'!=': 0}});
+      const listRooms = await Rooms.find();
+      if (!listRooms.length) throw "err";
       return exits.success({
-        totalRevenue: total,
-        online: totalOnline,
+        data: listRooms,
         message: "true",
       });
     } catch (error) {
-      console.log(error);
       return exits.fail({
-        message: "false",
+        message: "false"
       });
     }
   },

@@ -11,6 +11,7 @@ module.exports = {
     filmId: { type: "number", required: true },
     theaterId: { type: "number", required: true },
     seat: { type: "json", columnType: "array", required: true },
+    popcornId: { type: "string", required: true },
   },
 
   exits: {
@@ -33,6 +34,7 @@ module.exports = {
         time: inputs.time,
         filmId: inputs.filmId,
         theaterId: inputs.theaterId,
+        popcornId: inputs.popcornId,
       }).fetch();
       var orderDetailData = [];
       for (var i = 0; i < inputs.seat.length; i++) {

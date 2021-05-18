@@ -1,5 +1,5 @@
 module.exports = {
-  friendlyName: "Get total revenue",
+  friendlyName: "Get comingsoon films",
 
   description: "",
 
@@ -16,15 +16,14 @@ module.exports = {
 
   fn: async function (inputs, exits) {
     try {
-      const total = await Orders.sum("price");
-      const totalOnline = await Orders.sum("price").where({userId: {'!=': 0}});
+      const filmComingsoon = await sails.sendNativeQuery(
+        `SELECT * FROM films WHERE id NOT IN (SELECT filmId FROM orders)`
+      );
       return exits.success({
-        totalRevenue: total,
-        online: totalOnline,
+        data: filmComingsoon.rows,
         message: "true",
       });
     } catch (error) {
-      console.log(error);
       return exits.fail({
         message: "false",
       });

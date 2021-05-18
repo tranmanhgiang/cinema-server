@@ -37,7 +37,7 @@ module.exports = {
       from: '"TMG 👻" <foo@example.com>',
       to: inputs.to,
       subject: inputs.subject,
-      text: inputs.htmlContent
+      html: inputs.htmlContent
     }
 
     transporter.sendMail(options, (error) => {

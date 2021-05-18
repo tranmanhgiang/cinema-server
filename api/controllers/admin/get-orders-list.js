@@ -24,7 +24,9 @@ module.exports = {
 
   fn: async function (inputs, exits) {
     try {
-      const ordersList = await sails.sendNativeQuery(`SELECT * FROM orders AS o JOIN users AS u ON o.userId = u.id JOIN rooms AS r ON o.theaterId = r.id JOIN films AS f ON o.filmId = f.id`);
+      // const ordersList = await sails.sendNativeQuery(`SELECT * FROM orders AS o JOIN users AS u ON o.userId = u.id JOIN rooms AS r ON o.theaterId = r.id JOIN films AS f ON o.filmId = f.id`);
+      const ordersList = await sails.sendNativeQuery(`SELECT * FROM orders AS o JOIN rooms AS r ON o.theaterId = r.id JOIN films AS f ON o.filmId = f.id`);
+
       return exits.success({
         data: ordersList.rows,
         message: "true",

@@ -18,7 +18,7 @@ module.exports = {
     try {
       const user = this.req.user;
       // const history = await Orders.find({ userId: user.id });
-      const sql = await sails.sendNativeQuery(`SELECT * FROM orders AS o JOIN films as f ON o.filmId = f.id JOIN rooms as r ON o.theaterId = r.id and o.userId <> 0`);
+      const sql = await sails.sendNativeQuery(`SELECT * FROM orders AS o JOIN films as f ON o.filmId = f.id JOIN rooms as r ON o.theaterId = r.id and o.userId <> 0 where o.userId = ${user.id}`);
 
       // const orderID = await sails.sendNativeQuery(
       //   `SELECT DISTINCT(o.id) FROM orders AS o join orderdetail as od

@@ -16,10 +16,11 @@ module.exports = {
 
   fn: async function (inputs, exits) {
     try {
-      const listFilm = await Films.find();
-      if (!listFilm.length) throw "err";
+      const listFilms = await sails.sendNativeQuery(
+        `SELECT * FROM films WHERE id IN (SELECT filmId FROM schedule)`
+      );
       return exits.success({
-        data: listFilm,
+        data: listFilms.rows,
         message: "true",
       });
     } catch (error) {

@@ -23,7 +23,7 @@ module.exports = {
       var tmnCode = "GHSP82O7";
       var secretKey = "RSEUXLZWBHDARQUQNRKNIMILYCDZNGSU";
       var vnpUrl = "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-      var returnUrl = "http://192.168.0.105:1337/paymentSuccess";
+      var returnUrl = "http://192.168.0.104:1337/paymentSuccess";
 
       var createDate = dayjs().format("YYYYMMDDHHmmss");
       var orderId = dayjs().format("HHmmss");

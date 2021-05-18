@@ -31,6 +31,7 @@ module.exports = {
         time: inputs.time,
         filmId: inputs.filmId,
         theaterId: inputs.theaterId,
+        popcornId: "0",
       }).fetch();
       var orderDetailData = [];
       for (var i = 0; i < inputs.seat.length; i++) {

@@ -1,5 +1,7 @@
+var dayjs = require('dayjs');
+
 module.exports = {
-  friendlyName: "Get total revenue",
+  friendlyName: "Get schedule today",
 
   description: "",
 
@@ -16,15 +18,13 @@ module.exports = {
 
   fn: async function (inputs, exits) {
     try {
-      const total = await Orders.sum("price");
-      const totalOnline = await Orders.sum("price").where({userId: {'!=': 0}});
+      const today = dayjs().hour(0).minute(0).second(0).format('YYYY-MM-DD');
+      const schedule = await Schedule.find({ date: parseInt(dayjs(today).valueOf()) });
       return exits.success({
-        totalRevenue: total,
-        online: totalOnline,
+        data: schedule,
         message: "true",
       });
     } catch (error) {
-      console.log(error);
       return exits.fail({
         message: "false",
       });

@@ -31,19 +31,28 @@ module.exports.routes = {
 
   // cinema functions
   "GET /cinema/get-list-films": { action: "cinema/get-list-films" },
+  "GET /cinema/get-suggest-films": { action: "cinema/get-suggest-films" },
+  "GET /cinema/get-comingsoon-films": { action: "cinema/get-comingsoon-films" },
   "POST /cinema/create-room": { action: "cinema/create-room" },
+  "GET /cinema/get-rooms": { action: "cinema/get-rooms" },
   "POST /cinema/create-film": { action: "cinema/create-film" },
   "POST /cinema/book-ticket": { action: "cinema/book-ticket" },
   "POST /cinema/get-cinema-by-film-id": { action: "cinema/get-cinema-by-film-id" },
   "POST /cinema/create-payment": { action: "cinema/create-payment" },
   "GET /cinema/get-history-booked": { action: "cinema/get-history-booked" },
   "POST /cinema/check-seat-selected": { action: "cinema/check-seat-selected" },
+  "POST /cinema/add-popcorn": { action: "cinema/add-popcorn" },
+  "GET /cinema/get-popcorns": { action: "cinema/get-popcorns" },
+  "POST /cinema/send-email-invite-friends": { action: "cinema/send-email-invite-friends" },
 
   // admin
+
+  "POST /admin/login": { action: "admin/login" },
   "GET /admin/get-total-revenue": { action: "admin/get-total-revenue" },
   "POST /admin/get-revenue-by-period": { action: "admin/get-revenue-by-period" },
   "POST /admin/make-schedule": { action: "admin/make-schedule" },
   "GET /admin/get-schedule-end-date": { action: "admin/get-schedule-end-date" },
+  "GET /admin/get-schedule-today": { action: "admin/get-schedule-today" },
   "POST /admin/get-cinema-by-film-id": { action: "admin/get-cinema-by-film-id" },
   "POST /admin/buy-tickets-directly": { action: "admin/buy-tickets-directly" },
   "GET /admin/overview": { action: "admin/overview" },
@@ -52,7 +61,15 @@ module.exports.routes = {
   "POST /admin/edit-user": { action: "admin/edit-user" },
   "POST /admin/upload-image": { action: "admin/upload-image" },
   "GET /admin/get-orders-list": { action: "admin/get-orders-list" },
+  "GET /admin/get-coupons": { action: "admin/get-coupons" },
+  "POST /admin/add-coupons": { action: "admin/add-coupons" },
+  "POST /admin/edit-coupon": { action: "admin/edit-coupon" },
 
+
+  "POST /admin/create-admin-for-test": { action: "admin/create-admin-for-test" },
+
+  'POST /checkoutpaypal':{ action: 'cinema/test'},
+  
   /***************************************************************************
    *                                                                          *
    * More custom routes here...                                               *

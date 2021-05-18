@@ -14,5 +14,6 @@ module.exports = {
     time: { type: "string", required: true },
     filmId: { type: "number", required: true },
     theaterId: { type: "number", required: true },
+    popcornId: { type: "string", required: true },
   },
 };

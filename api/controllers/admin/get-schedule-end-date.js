@@ -1,3 +1,5 @@
+var dayjs = require('dayjs');
+
 module.exports = {
   friendlyName: "Get schedule end date",
 
@@ -21,7 +23,7 @@ module.exports = {
         sort: "id DESC",
       });
       return exits.success({
-        date: endDate[0].date,
+        date: endDate[0] ? endDate[0].date : dayjs().valueOf(),
         message: "true",
       });
     } catch (error) {

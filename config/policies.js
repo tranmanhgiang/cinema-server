@@ -22,4 +22,11 @@ module.exports.policies = {
   'cinema/book-ticket': 'bearer',
   // 'cinema/check-seat-selected': 'bearer',
   'cinema/get-history-booked': 'bearer',
+  'admin/get-users': 'bearer',
+  'admin/edit-user': 'bearer',
+  'admin/get-coupons': 'bearer',
+  'admin/add-coupons': 'bearer',
+  'admin/edit-coupon': 'bearer',
+  'admin/get-popcorns': 'bearer',
+  'admin/add-popcorn': 'bearer',
 };

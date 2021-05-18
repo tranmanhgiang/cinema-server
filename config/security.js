@@ -52,7 +52,7 @@ module.exports.security = {
     allRoutes: true,
     allowOrigins: "*",
     allowCredentials: false,
-    allowRequestHeaders: "content-type,Authorization,accept-language,warning",
+    allowRequestHeaders: "content-type,Authorization,Authorization-Token,accept-language,warning",
     allowRequestMethods: "GET, POST, PUT,PATCH,DELETE",
   },
 };

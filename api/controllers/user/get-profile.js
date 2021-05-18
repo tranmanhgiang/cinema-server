@@ -18,6 +18,8 @@ module.exports = {
     try {
       const user = this.req.user;
       const userInfo = await Users.findOne({ id: user.id });
+      const purchased = await Orders.sum('price').where({ userId: user.id });
+      userInfo.purchased = purchased;
       return exits.success({
         data: userInfo,
         message: "true",

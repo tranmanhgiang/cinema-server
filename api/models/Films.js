@@ -9,7 +9,7 @@ module.exports = {
   attributes: {
     filmName: { type: "string", required: true },
     imageUrl: { type: "string", required: true },
-    description: { type: "string", required: true },
+    description: { type: "string", required: true, maxLength: 1000 },
     author: { type: "string", required: true },
     actors: { type: "string", required: true },
     releaseDate: { type: "string", required: true },
